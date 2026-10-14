@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAJAD | للخدمات الإلكترونية والحلول البرمجية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #07090e;
+            --card-bg: rgba(18, 24, 38, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-gold: #d4af37;
+            --accent-blue: #2563eb;
+            --accent-cyan: #06b6d4;
+            --text-title: #f8fafc;
+            --text-body: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 0% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-title);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        /* Header / Brand Badge */
+        .brand-header {
+            margin-bottom: 25px;
+        }
+
+        .brand-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(6, 182, 212, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .brand-icon::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        h1.brand-title {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff 30%, #a5f3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .brand-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            font-size: 13px;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        /* Main Form Card */
+        .card-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 28px 22px;
+            text-align: right;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-cyan), transparent);
+        }
+
+        .form-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-title);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: var(--text-body);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            background: rgba(10, 15, 26, 0.6);
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-blue);
+            background: rgba(15, 23, 42, 0.8);
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .form-control::placeholder {
+            color: #475569;
+        }
+
+        /* Action Buttons */
+        .submit-label {
+            font-size: 13px;
+            color: var(--text-body);
+            font-weight: 600;
+            margin: 22px 0 12px;
+            text-align: center;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-send {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, #1d9bf0, #0088cc);
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-send:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-send:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 35px;
+            font-size: 12px;
+            color: #475569;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 400px) {
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <!-- الهيدر والشعار بدون صورة -->
+        <div class="brand-header">
+            <div class="brand-icon">⚡</div>
+            <h1 class="brand-title">SAJAD</h1>
+            <div class="brand-tag">للخدمات الإلكترونية والحلول البرمجية</div>
+        </div>
+
+        <!-- استمارة تقديم الطلب -->
+        <div class="card-container">
+            <div class="form-title">استمارة تقديم طلب جديد</div>
+
+            <form id="orderForm">
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" id="fullname" class="form-control" placeholder="اكتب اسمك هنا..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>رقم الهاتف / الواتساب:</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="07XXXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label>تفاصيل المشروع أو الخدمة المطلوبة:</label>
+                    <textarea id="details" class="form-control" rows="4" placeholder="اشرح الخدمة أو الفكرة البرمجية التي تحتاجها..." required></textarea>
+                </div>
+
+                <div class="submit-label">اختر منصة إرسال الطلب والمباشرة:</div>
+
+                <div class="btn-group">
+                    <button type="button" onclick="sendToTelegram()" class="btn-send btn-telegram">
+                        <span>✈️ عبر تليجرام</span>
+                    </button>
+                    <button type="button" onclick="sendToWhatsApp()" class="btn-send btn-whatsapp">
+                        <span>💬 عبر واتساب</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">جميع الحقوق محفوظة © SAJAD 2026</div>
+
+    </div>
+
+    <script>
+        function getMessageText() {
+            const fullname = document.getElementById('fullname').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const details = document.getElementById('details').value.trim();
+
+            if (!fullname || !phone || !details) {
+                alert('يرجى ملء جميع الحقول المطلوبة قبل الإرسال.');
+                return null;
+            }
+
+            return `السلام عليكم، أرغب بطلب خدمة جديدة:%0A%0A👤 الاسم: ${encodeURIComponent(fullname)}%0A📞 الهاتف: ${encodeURIComponent(phone)}%0A📝 التفاصيل: ${encodeURIComponent(details)}`;
+        }
+
+        function sendToTelegram() {
+            const message = getMessageText();
+            if (message) {
+                window.open(`https://t.me/FFFP3?text=${message}`, '_blank');
+            }
+        }
+
+        function sendToWhatsApp() {
+            const message = getMessageText();
+            if (message) {
+                window.open(`https://wa.me/9647808868784?text=${message}`, '_blank');
+            }
+        }
+    </script>
+
+</body>
+</html>
